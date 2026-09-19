@@ -1,0 +1,17 @@
+[general]
+name=Painter Plugin
+description=Repaint simple symbols.
+about=
+version=0.0.0
+qgisMinimumVersion=3.40
+icon=
+author=author
+email=author@email
+changelog=
+tags=
+repository=https://github.com/osgeosuomi/qgis-plugin-copier-template
+homepage=https://github.com/osgeosuomi/qgis-plugin-copier-template
+tracker=https://github.com/osgeosuomi/qgis-plugin-copier-template/issues
+category=Plugins
+experimental=True
+deprecated=False

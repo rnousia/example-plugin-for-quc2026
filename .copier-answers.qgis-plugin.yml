@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v0.1.1-6-gae07499
+_src_path: https://github.com/osgeosuomi/qgis-plugin-copier-template.git
+insert_copyright_header: true
+lang_key_for_translations: gsw
+plugin_metadata_author: author
+plugin_metadata_email: author@email
+plugin_metadata_repository_url: https://github.com/osgeosuomi/qgis-plugin-copier-template
+python_version: '3.12'
+qgis_plugin_description: Repaint simple symbols.
+qgis_plugin_module: painter_plugin
+qgis_plugin_name: Painter Plugin
+qgis_version: QGIS3
+setup_translations: true
