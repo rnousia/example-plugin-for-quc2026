@@ -4,26 +4,47 @@
 
 On Linux:
 
-* Install [uv](https://docs.astral.sh/uv/) if not already available: `pip install uv`
+* Install [uv](https://docs.astral.sh/uv/) if not already available:
+
+  ```bash
+  pip install uv
+  ```
+
 * Create a Python virtual environment with access to the libraries provided by
   the QGIS installation:
-  `uv venv .venv --system-site-packages`
+
+  ```bash
+  uv venv .venv --system-site-packages
+  ```
 
 On Windows:
 
 * You can use the [qgis-venv-creator tool](https://github.com/GispoCoding/qgis-venv-creator)
   to make sure the virtual environment is configured correctly for QGIS
-* Install `uv` to the virtual environment: `pip install uv`
+* Install `uv` to the virtual environment:
+
+  ```bash
+  python -m pip install --upgrade pip
+  pip install uv
+  ```
 
 When virtual environment is ready and activated:
 
-* Install dependencies: `uv sync`
-* Install pre-commit hooks: `prek install`
-* Run tests: `pytest`
+* Install dependencies
+* Install pre-commit hooks
+* Run tests
+
+```bash
+uv sync
+prek install
+pytest
+```
 
 ## Running QGIS in development mode
 
-Before starting development, create a `.env` file by copying `.env.example` and updating the configuration values as needed.
+Before starting development, create a `.env` file by copying `.env.example` and update
+the configuration values as needed. Set the `QGIS_EXECUTABLE_PATH` variable to point to
+the same QGIS installation the venv was created by.
 
 Start QGIS with the plugin loaded in development mode:
 
@@ -38,11 +59,22 @@ For more information about the development workflow, see the [qgis-plugin-dev-to
 
 ## Managing dependencies
 
-This project uses [uv](https://docs.astral.sh/uv/concepts/projects/dependencies/) for dependency management.
+This project uses [uv](https://docs.astral.sh/uv/concepts/projects/dependencies/) for
+dependency management.
+
+## Copier templates
+
+This repository uses the following `copier` templates:
+
+* [qgis-plugin-copier-template](https://github.com/osgeosuomi/qgis-plugin-copier-template/tree/main)
+
+To get the newest version of the template, check each template's repository
+README.md for update instructions.
 
 ## Code quality and style
 
-The included `painter-plugin.code-workspace` file is preconfigured for VS Code and provides recommended settings for:
+The included `painter-plugin.code-workspace` file is preconfigured for
+VS Code and provides recommended settings for:
 
 * Formatting
 * Linting
@@ -52,4 +84,5 @@ The included `painter-plugin.code-workspace` file is preconfigured for VS Code a
 
 ## Commit message convention
 
-Commit messages should follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) convention.
+Commit messages should follow the
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) convention.
