@@ -17,6 +17,7 @@
 # along with Painter Plugin.  If not, see <https://www.gnu.org/licenses/>.
 
 import logging
+import typing
 from typing import (
     TYPE_CHECKING,
     cast,
@@ -52,6 +53,8 @@ LOGGER = logging.getLogger(__name__)
 class PainterTool(QgsMapToolIdentify):
     """Map tool to repaint layers styled by simple fill."""
 
+    PAINT_COLOR = QColor("#002F6C")
+
     def __init__(
         self,
         canvas: "QgsMapCanvas | None",
@@ -61,8 +64,14 @@ class PainterTool(QgsMapToolIdentify):
         self.setCursor(QCursor())
         self.previous_tool: QgsMapTool | None = None
 
-    def canvasReleaseEvent(self, mouse_event: "QgsMapMouseEvent | None") -> None:  # noqa: D102, N802
-        self._paint_layer_at_location(self.toMapCoordinates(require(mouse_event).pos()))  # noqa: SC200
+    @typing.override
+    def canvasReleaseEvent(self, mouse_event: "QgsMapMouseEvent | None") -> None:
+        self._paint_layer_at_location(self._point_xy_from_mouse_event(mouse_event))
+
+    def _point_xy_from_mouse_event(
+        self, mouse_event: "QgsMapMouseEvent | None"
+    ) -> "QgsPointXY":
+        return self.toMapCoordinates(require(mouse_event).pos())  # noqa: SC200
 
     def _paint_layer_at_location(self, location: "QgsPointXY") -> None:
         layer_to_paint = self._find_top_layer_at_location(location)
@@ -98,7 +107,7 @@ class PainterTool(QgsMapToolIdentify):
         if isinstance(layer.renderer(), QgsSingleSymbolRenderer):
             symbol = QgsSymbol.defaultSymbol(layer.geometryType())
             if symbol:
-                symbol.setColor(QColor("#002F6C"))
+                symbol.setColor(self.PAINT_COLOR)
                 layer.setRenderer(QgsSingleSymbolRenderer(symbol))
                 layer.triggerRepaint()
         else:
