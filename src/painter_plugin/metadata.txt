@@ -1,10 +1,12 @@
 [general]
 name=Painter Plugin
+# Short text (no HTML)
 description=Repaint simple symbols.
-about=
+# Longer text in details (no HTML)
+about=Repaints simple symbol fills by selecting a feature from map.
 version=0.0.0
 qgisMinimumVersion=3.40
-icon=
+icon=resources/icons/icon.svg
 author=author
 email=author@email
 changelog=

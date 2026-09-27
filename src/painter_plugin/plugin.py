@@ -42,7 +42,7 @@ LOGGER = logging.getLogger(__name__)
 iface = typing.cast("QgisInterface", utils_iface)
 
 
-class Plugin:
+class PainterPlugin:
     """QGIS Plugin Implementation."""
 
     def __init__(self) -> None:

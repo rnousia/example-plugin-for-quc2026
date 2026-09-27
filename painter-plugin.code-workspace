@@ -2,6 +2,7 @@
     "extensions": {
         "recommendations": [
             "editorconfig.editorconfig",
+            "davidanson.vscode-markdownlint",
             "mikestead.dotenv",
             "tamasfe.even-better-toml",
             "ms-python.python",
@@ -24,8 +25,8 @@
         "ruff.importStrategy": "fromEnvironment",
         "mypy-type-checker.importStrategy": "fromEnvironment",
         // Formatting
+        "editor.formatOnSave": true,
         "[python]": {
-            "editor.formatOnSave": true,
             "editor.codeActionsOnSave": {
                 "source.organizeImports.ruff": "explicit",
                 "source.fixAll": "explicit"
@@ -39,6 +40,22 @@
         "files.associations": {
             "*.ts": "xml",
             "*.qml": "xml"
+        },
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": "explicit"
         }
+    },
+    "launch": {
+        "configurations": [
+            {
+                "name": "QGIS debugpy",
+                "type": "debugpy",
+                "request": "attach",
+                "connect": {
+                    "host": "localhost",
+                    "port": 5678
+                }
+            }
+        ],
     }
 }

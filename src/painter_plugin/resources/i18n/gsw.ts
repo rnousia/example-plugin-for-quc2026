@@ -4,9 +4,29 @@
 <context>
     <name>@default</name>
     <message>
-        <location filename="../../plugin.py" line="51"/>
+        <location filename="../../plugin.py" line="59"/>
         <source>Painter Plugin</source>
         <translation type="unfinished">Unfinished</translation>
+    </message>
+    <message>
+        <location filename="../../plugin.py" line="65"/>
+        <source>Painter Plugin Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../plugin.py" line="73"/>
+        <source>Paint layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../map_tool/painter_tool.py" line="71"/>
+        <source>Repainting layer {} to blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../map_tool/painter_tool.py" line="105"/>
+        <source>Can only repaint single symbols</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
