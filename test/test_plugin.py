@@ -19,13 +19,14 @@
 from typing import TYPE_CHECKING
 
 import pytest
+from qgis.gui import QgsMapToolPan
 
 from painter_plugin import classFactory
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
 
-    from pytest_qgis import QgisInterface
+    from pytest_qgis import QgisInterface, QgsMapCanvas
 
     from painter_plugin.plugin import PainterPlugin
 
@@ -42,3 +43,29 @@ def plugin_loaded(qgis_iface: "QgisInterface") -> "Iterator[PainterPlugin]":
 
 def test_plugin_loads_without_errors(plugin_loaded: "PainterPlugin") -> None:
     assert plugin_loaded.toolbar is not None
+
+
+def test_trigger_painter_tool_action_activates_tool(
+    plugin_loaded: "PainterPlugin", qgis_iface: "QgisInterface"
+) -> None:
+
+    assert plugin_loaded.painter_tool_action
+    plugin_loaded.painter_tool_action.trigger()
+
+    assert qgis_iface.mapCanvas().mapTool() == plugin_loaded.painter_tool
+    assert plugin_loaded.painter_tool.previous_tool is None
+
+
+def test_trigger_painter_tool_action_saves_previous_tool(
+    plugin_loaded: "PainterPlugin",
+    qgis_iface: "QgisInterface",
+    qgis_canvas: "QgsMapCanvas",
+) -> None:
+    map_tool = QgsMapToolPan(qgis_canvas)
+    qgis_iface.mapCanvas().setMapTool(map_tool)
+
+    assert plugin_loaded.painter_tool_action
+    plugin_loaded.painter_tool_action.trigger()
+
+    assert qgis_iface.mapCanvas().mapTool() == plugin_loaded.painter_tool
+    assert plugin_loaded.painter_tool.previous_tool == map_tool
