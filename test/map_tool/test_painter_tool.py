@@ -29,9 +29,9 @@ from qgis.core import (
     QgsVectorLayerUtils,
 )
 from qgis.gui import QgsMapToolIdentify, QgsMapToolPan
+from qgis_plugin_tools.utils.typing_utils import require
 
 from painter_plugin.map_tool.painter_tool import PainterTool
-from painter_plugin.utils.typing_utils import require
 
 if TYPE_CHECKING:
     from qgis.gui import QgsMapCanvas

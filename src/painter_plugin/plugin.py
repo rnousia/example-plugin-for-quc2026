@@ -27,11 +27,11 @@ from qgis_plugin_tools.tools import custom_logging
 from qgis_plugin_tools.tools.decorations import log_if_fails
 from qgis_plugin_tools.tools.i18n import tr
 from qgis_plugin_tools.tools.resources import resources_path
+from qgis_plugin_tools.utils.typing_utils import require
 
 import painter_plugin
 from painter_plugin import env
 from painter_plugin.map_tool.painter_tool import PainterTool
-from painter_plugin.utils.typing_utils import require
 
 if typing.TYPE_CHECKING:
     from qgis.gui import QgisInterface
