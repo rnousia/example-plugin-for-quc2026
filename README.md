@@ -6,6 +6,8 @@
 
 QGIS Plugin for workshop, generated using [qgis-plugin-copier-template](https://github.com/osgeosuomi/qgis-plugin-copier-template.git).
 
+A geopackage with a polygon and raster data for the workshop is found from [example folder](./example).
+
 ## Development
 
 See [development readme](./DEVELOPMENT.md).
