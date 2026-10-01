@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: v0.6.3
+_commit: v0.7.0-4-g88f4a5d
 _src_path: https://github.com/osgeosuomi/qgis-plugin-copier-template.git
 add_github_workflows: true
 insert_copyright_header: true
@@ -11,8 +11,9 @@ plugin_metadata_email: author@email
 plugin_metadata_repository_url: https://github.com/osgeosuomi/qgis-plugin-copier-template
 qgis_plugin_about: Repaints simple symbol fills by selecting a feature from map.
 qgis_plugin_class: PainterPlugin
-qgis_plugin_description: Repaint simple symbols.
+qgis_plugin_description: QGIS Plugin for workshop, generated using [qgis-plugin-copier-template](https://github.com/osgeosuomi/qgis-plugin-copier-template.git).
 qgis_plugin_module: painter_plugin
 qgis_plugin_name: Painter Plugin
 qgis_version: QGIS3
 setup_translations: true
+type_checking_library: ty

@@ -65,8 +65,8 @@ class PainterTool(QgsMapToolIdentify):
         self.previous_tool: QgsMapTool | None = None
 
     @typing.override
-    def canvasReleaseEvent(self, mouse_event: "QgsMapMouseEvent | None") -> None:
-        self._paint_layer_at_location(self._point_xy_from_mouse_event(mouse_event))
+    def canvasReleaseEvent(self, e: "QgsMapMouseEvent | None") -> None:
+        self._paint_layer_at_location(self._point_xy_from_mouse_event(e))
 
     def _point_xy_from_mouse_event(
         self, mouse_event: "QgsMapMouseEvent | None"
@@ -106,7 +106,7 @@ class PainterTool(QgsMapToolIdentify):
     def _repaint_layer(self, layer: "QgsVectorLayer") -> None:
         if isinstance(layer.renderer(), QgsSingleSymbolRenderer):
             symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-            if symbol:
+            if symbol is not None:
                 symbol.setColor(self.PAINT_COLOR)
                 layer.setRenderer(QgsSingleSymbolRenderer(symbol))
                 layer.triggerRepaint()

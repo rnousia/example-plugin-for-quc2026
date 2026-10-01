@@ -19,8 +19,7 @@
 import typing
 
 from qgis.utils import plugins
-
-from painter_plugin.utils import i18n_utils
+from qgis_plugin_tools.tools import i18n
 
 if typing.TYPE_CHECKING:
     from qgis.PyQt import QtCore
@@ -32,7 +31,7 @@ TRANSLATORS: "list[QtCore.QTranslator]" = []
 
 def classFactory(_) -> "PainterPlugin":  # noqa: ANN001, N802
     """Class factory."""
-    TRANSLATORS.extend(i18n_utils.setup_all_translators())
+    TRANSLATORS.extend(i18n.setup_all_translators())
 
     from painter_plugin.plugin import PainterPlugin  # noqa: PLC0415
 

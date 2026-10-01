@@ -1,5 +1,9 @@
 # Example plugin for QGIS User Conference 2026
 
+[![prek](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/j178/prek/master/docs/assets/badge-v0.json)](https://github.com/j178/prek)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![ty](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ty/main/assets/badge/v0.json)](https://github.com/astral-sh/ty)
+
 QGIS Plugin for workshop, generated using [qgis-plugin-copier-template](https://github.com/osgeosuomi/qgis-plugin-copier-template.git).
 
 ## Development
