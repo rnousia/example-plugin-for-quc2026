@@ -43,7 +43,10 @@
         },
         "editor.codeActionsOnSave": {
             "source.fixAll.markdownlint": "explicit"
-        }
+        },
+        // These are normally user-specific preferences, but are configured at the workspace level for the exercises
+        "python.analysis.autoImportCompletions": true,
+        "files.autoSave": "afterDelay"
     },
     "launch": {
         "configurations": [
