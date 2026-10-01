@@ -38,8 +38,7 @@ from qgis.PyQt.QtGui import QColor, QCursor
 from qgis.utils import iface as utils_iface
 from qgis_plugin_tools.tools.i18n import tr
 from qgis_plugin_tools.tools.messages import MsgBar
-
-from painter_plugin.utils.typing_utils import require
+from qgis_plugin_tools.utils.typing_utils import require
 
 if TYPE_CHECKING:
     from qgis.core import QgsPointXY, QgsVectorLayer
