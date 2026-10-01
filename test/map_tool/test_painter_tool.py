@@ -77,7 +77,7 @@ def painter_tool(qgis_canvas: "QgsMapCanvas") -> PainterTool:
     map_tool = PainterTool(qgis_canvas)
 
     # Set search radius to 0 for tests
-    if Qgis.QGIS_VERSION_INT >= 34200:  # type: ignore[attr-defined]
+    if Qgis.versionInt() >= 34200:
         overrides = QgsMapToolIdentify.IdentifyProperties()
         overrides.searchRadiusMapUnits = 0.0
         map_tool.setPropertiesOverrides(overrides)
