@@ -40,7 +40,7 @@ if TYPE_CHECKING:
 MOUSE_LOCATION = QgsPointXY(1, 1)
 
 
-# Adopted from https://github.com/nlsfi/pickLayer/blob/main/test/unit/test_set_active_layer_tool.py
+# Adapted from https://github.com/nlsfi/pickLayer/blob/main/test/unit/test_set_active_layer_tool.py
 @pytest.fixture
 def test_layers() -> dict[Qgis.GeometryType, QgsVectorLayer]:
     layers = [
@@ -121,7 +121,7 @@ def test_paint_layer_at_location_does_nothing_if_no_layer_found_at_location(
 
 
 @pytest.mark.usefixtures("test_layers")
-def test_paint_layer_at_location_restores_previous_tool_if_(
+def test_paint_layer_at_location_restores_previous_tool_if_tool_was_selected(
     qgis_canvas: "QgsMapCanvas", painter_tool: PainterTool
 ):
     previous_tool = QgsMapToolPan(qgis_canvas)
