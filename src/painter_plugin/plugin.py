@@ -71,7 +71,7 @@ class PainterPlugin:
         toolbar.setObjectName("painter-plugin-toolbar")
 
         self.painter_tool_action = QAction(
-            QIcon(resources_path("icon/painter_tool.svg")),
+            QIcon(resources_path("icons/painter_tool.svg")),
             tr("Paint layers"),
             iface.mainWindow(),
         )
