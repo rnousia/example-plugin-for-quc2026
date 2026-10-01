@@ -15,5 +15,6 @@ repository=https://github.com/osgeosuomi/qgis-plugin-copier-template
 homepage=https://github.com/osgeosuomi/qgis-plugin-copier-template
 tracker=https://github.com/osgeosuomi/qgis-plugin-copier-template/issues
 category=Plugins
+# Set to false before going into production
 experimental=True
 deprecated=False

@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: v0.7.0-4-g88f4a5d
+_commit: v0.8.0
 _src_path: https://github.com/osgeosuomi/qgis-plugin-copier-template.git
 add_github_workflows: true
 insert_copyright_header: true
