@@ -37,7 +37,6 @@ from qgis.gui import (
 from qgis.PyQt.QtGui import QColor, QCursor
 from qgis.utils import iface as utils_iface
 from qgis_plugin_tools.tools.i18n import tr
-from qgis_plugin_tools.tools.messages import MsgBar
 from qgis_plugin_tools.utils.typing_utils import require
 
 if TYPE_CHECKING:
@@ -88,7 +87,7 @@ class PainterTool(QgsMapToolIdentify):
         identify_results = self.identify(
             geometry=QgsGeometry.fromPointXY(location),
             mode=QgsMapToolIdentify.IdentifyMode.TopDownStopAtFirst,
-            layerType=QgsMapToolIdentify.Type.VectorLayer,
+            layerType=QgsMapToolIdentify.Type.AllLayers,
         )
 
         if len(identify_results) < 1:
@@ -103,11 +102,8 @@ class PainterTool(QgsMapToolIdentify):
         return layer
 
     def _repaint_layer(self, layer: "QgsVectorLayer") -> None:
-        if isinstance(layer.renderer(), QgsSingleSymbolRenderer):
-            symbol = QgsSymbol.defaultSymbol(layer.geometryType())
-            if symbol is not None:
-                symbol.setColor(self.PAINT_COLOR)
-                layer.setRenderer(QgsSingleSymbolRenderer(symbol))
-                layer.triggerRepaint()
-        else:
-            MsgBar.warning(tr("Can only repaint single symbols"))
+        symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+        if symbol is not None:
+            symbol.setColor(self.PAINT_COLOR)
+            layer.setRenderer(QgsSingleSymbolRenderer(symbol))
+            layer.triggerRepaint()
