@@ -60,7 +60,8 @@ lint = [
   "flake8-pyproject==1.2.4",
   "flake8-spellcheck==0.28.0",
   # Stubs for type checks
-  "qgis-stubs==0.4.0",
+  "PyQt5-stubs==5.15.6.0",
+  "PyQt6-stubs==20250824",
 ]
 
 [tool.ruff]
@@ -139,10 +140,6 @@ python-version = "3.12"
 [tool.ty.rules]
 possibly-unresolved-reference = "warn"
 division-by-zero = "ignore"
-
-[tool.ty.analysis]
-# Imports from qgis.PyQt cannot be resolved
-replace-imports-with-any = ["qgis.PyQt.**"]
 
 [tool.pytest.ini_options]
 testpaths = ["test"]

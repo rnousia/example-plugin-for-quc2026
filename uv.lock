@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 
 [[package]]
@@ -664,6 +664,7 @@ wheels = [
 name = "painter-plugin"
 version = "0.0.0.post0"
 source = { editable = "." }
+default-groups = ["dev", "lint"]
 dependencies = [
     { name = "qgis-plugin-tools" },
 ]
@@ -686,7 +687,8 @@ lint = [
     { name = "flake8-qgis" },
     { name = "flake8-spellcheck" },
     { name = "prek" },
-    { name = "qgis-stubs" },
+    { name = "pyqt5-stubs" },
+    { name = "pyqt6-stubs" },
     { name = "ruff" },
     { name = "ty" },
 ]
@@ -712,7 +714,8 @@ lint = [
     { name = "flake8-qgis", specifier = "==2.1.0" },
     { name = "flake8-spellcheck", specifier = "==0.28.0" },
     { name = "prek", specifier = ">=0.5.3" },
-    { name = "qgis-stubs", specifier = "==0.4.0" },
+    { name = "pyqt5-stubs", specifier = "==5.15.6.0" },
+    { name = "pyqt6-stubs", specifier = "==20250824" },
     { name = "ruff", specifier = "==0.16.8" },
     { name = "ty", specifier = "==0.0.84" },
 ]
@@ -911,6 +914,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pyqt6-stubs"
+version = "20250824"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/eb/08/a5061968fed399314bd83f1b225092ff8102d9bdc9fd13b70010aaf7fb7e/pyqt6_stubs-20250824.tar.gz", hash = "sha256:f56958e34fb69e52c19ce24f5b59f181dde9a1e2fe0738aa8780e6b9a9b809d9", size = 331916, upload-time = "2025-08-24T12:04:49.343Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/54/57/08d3a5c19f2d2fd773d2329d19692e682ab9e2a6620c1a586a744d50b52b/pyqt6_stubs-20250824-py3-none-any.whl", hash = "sha256:4b77dc40f5dab7ca4ba899fff4c1db8de9cc73799ee98f56cae63349f18a6e52", size = 369983, upload-time = "2025-08-24T12:04:47.605Z" },
+]
+
+[[package]]
 name = "pytest"
 version = "9.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1052,23 +1064,11 @@ wheels = [
 
 [[package]]
 name = "qgis-plugin-tools"
-version = "2.1.0"
+version = "2.1.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/13/c9/6152f9bc1d728a6f396f66f2b1a7510c1c023327511ae65e6a9852a9982f/qgis_plugin_tools-2.1.0.tar.gz", hash = "sha256:75112f226f98301aaaa8d444ddf995269be61f2927ba65acea89f302272baf00", size = 38849, upload-time = "2026-10-01T12:49:20.5Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/eb/0f/9646c4f848b1c71c3a4e821c217083d7ad4a8dc61815b55495e0d5e82a7b/qgis_plugin_tools-2.1.1.tar.gz", hash = "sha256:b74e761c7a90c8b98d8dc7a8ea2cf92b5bf3a748216e33efcd1dd590f748d8f4", size = 38737, upload-time = "2026-10-02T12:31:11.389Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/71/4b3f26361194fa30bbc6b1228b2271a88c611349f59aa907748993374f7b/qgis_plugin_tools-2.1.0-py3-none-any.whl", hash = "sha256:f763c5610d687267330048a76d4f2db5a13eb0c8e62eaadffa5554a4cdba7609", size = 63219, upload-time = "2026-10-01T12:49:19.244Z" },
-]
-
-[[package]]
-name = "qgis-stubs"
-version = "0.4.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pyqt5-stubs" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/41/f5/00d4c719f72ecd9236781e09eb931aa3a5dfd496508a94923eaed43057cc/qgis_stubs-0.4.0.tar.gz", hash = "sha256:8c0f3b9404448e6e5772b5875597c0d5f5576025e0f9df46ab55fbfb6644944d", size = 742366, upload-time = "2026-06-13T13:52:47.663Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e1/91/3848e7f340e853e855733a33ef6aadc128392e0fa4c3f511a843bab50a86/qgis_stubs-0.4.0-py3-none-any.whl", hash = "sha256:58ef590eafbacd2f672759270a56d15970c61445292a1f3fda7a6c40a4b384ff", size = 762788, upload-time = "2026-06-13T13:52:46.004Z" },
+    { url = "https://files.pythonhosted.org/packages/f4/1a/5451da535d0623adb5fee863b3a403b263855f83ba6b8534120fd0da4aa9/qgis_plugin_tools-2.1.1-py3-none-any.whl", hash = "sha256:c6ce40d1564d411f1c5305d0724e9cac567c75ff2c06d85d162d809e9544cecf", size = 63558, upload-time = "2026-10-02T12:31:10.476Z" },
 ]
 
 [[package]]
