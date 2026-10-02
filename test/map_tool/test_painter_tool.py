@@ -16,14 +16,17 @@
 # You should have received a copy of the GNU General Public License
 # along with Painter Plugin.  If not, see <https://www.gnu.org/licenses/>.
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 from qgis.core import (
     Qgis,
+    QgsCoordinateReferenceSystem,
     QgsGeometry,
     QgsPointXY,
     QgsProject,
+    QgsRasterLayer,
     QgsSingleSymbolRenderer,
     QgsVectorLayer,
     QgsVectorLayerUtils,
@@ -156,3 +159,23 @@ def test_find_top_layer_at_location(
 
     assert resulting_layer is not None
     assert resulting_layer.geometryType() == expected_layer_type
+
+
+def test_paint_layer_at_location_does_nothing_if_raster_clicked(
+    painter_tool: PainterTool,
+):
+    # Setup adapted from https://github.com/nlsfi/pickLayer/blob/main/test/unit/test_set_active_layer_tool.py
+    # Raster file has 1,1 -> 2,2 bbox (EPSG:4326)
+    raster_layer = QgsRasterLayer(
+        str(Path(__file__).parents[1] / "data/raster/image.tif")
+    )
+    assert raster_layer.isValid()
+
+    require(QgsProject.instance()).addMapLayer(raster_layer)
+    require(QgsProject.instance()).setCrs(QgsCoordinateReferenceSystem.fromEpsgId(4326))
+    require(painter_tool.canvas()).setDestinationCrs(
+        QgsCoordinateReferenceSystem.fromEpsgId(4326)
+    )
+
+    # Add function call to test here with correct arguments
+    # Check raster file extent with debugger using raster_layer.extent()
