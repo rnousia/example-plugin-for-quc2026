@@ -8,6 +8,8 @@ QGIS Plugin for workshop, generated using [qgis-plugin-copier-template](https://
 
 A geopackage with a polygon and raster data for the workshop is found from [example folder](./example).
 
+This version of the plugin has a bug making QGIS crash when tool is used.
+
 ## Development
 
 See [development readme](./DEVELOPMENT.md).
