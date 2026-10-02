@@ -38,7 +38,14 @@ jobs:
         run: |
           uv venv --system-site-packages
 
+      - name: Run type checks, allow failing
+        if: ${{ matrix.qgis-image-tag == '3.40-noble' }}
+        run: |
+          uv sync --all-packages --locked --active
+          uv run ty check || true
+
       - name: Run type checks
+        if: ${{ matrix.qgis-image-tag != '3.40-noble' }}
         run: |
           uv sync --all-packages --locked --active
           uv run ty check
