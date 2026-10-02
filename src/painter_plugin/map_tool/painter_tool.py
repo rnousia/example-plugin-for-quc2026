@@ -26,7 +26,6 @@ from typing import (
 from qgis.core import (
     QgsGeometry,
     QgsSingleSymbolRenderer,
-    QgsSymbol,
     QgsVectorLayer,
 )
 from qgis.gui import (
@@ -103,8 +102,9 @@ class PainterTool(QgsMapToolIdentify):
         return layer
 
     def _repaint_layer(self, layer: "QgsVectorLayer") -> None:
-        if isinstance(layer.renderer(), QgsSingleSymbolRenderer):
-            symbol = QgsSymbol.defaultSymbol(layer.geometryType())
+        renderer = require(layer.renderer())
+        if isinstance(renderer, QgsSingleSymbolRenderer):
+            symbol = renderer.symbol()
             if symbol is not None:
                 symbol.setColor(self.PAINT_COLOR)
                 layer.setRenderer(QgsSingleSymbolRenderer(symbol))
